@@ -5,8 +5,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 public class AbrirArquivos {
-    Path arquivo = Path.of("ArquivoPraTeste.txt");
-    boolean qualTipo;
+    private Path arquivo = Path.of("ArquivoPraTeste.txt");
+    public Path getArquivo() {
+        return arquivo;
+    }
+    public void setArquivo(Path arquivo) {
+        this.arquivo = arquivo;
+    }
+    private boolean qualTipo;
+    public boolean isQualTipo() {
+        return qualTipo;
+    }
+    public void setQualTipo(boolean qualTipo) {
+        this.qualTipo = qualTipo;
+    }
     public AbrirArquivos(boolean qualTipo){
         this.qualTipo = qualTipo;
     }
