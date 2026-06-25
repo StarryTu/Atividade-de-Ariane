@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 public class AbrirArquivos {
+    //Atributo para pegar o arquivo além dos seus respsectivos getter e setter.
     private Path arquivo = Path.of("ArquivoPraTeste.txt");
     public Path getArquivo() {
         return arquivo;
@@ -12,35 +13,42 @@ public class AbrirArquivos {
     public void setArquivo(Path arquivo) {
         this.arquivo = arquivo;
     }
-    private boolean qualTipo;
-    public boolean isQualTipo() {
-        return qualTipo;
+    //Atributo booleano para saber qual vai ser o tipo de abertura de arquivo (pra ler ou escrever) e os seus respectivos getter e setter.
+    private boolean TipoLeitura;
+    public boolean geTipoLeitura() {
+        return TipoLeitura;
     }
-    public void setQualTipo(boolean qualTipo) {
-        this.qualTipo = qualTipo;
+    public void setTipoLeitura(boolean qualTipo) {
+        this.TipoLeitura = qualTipo;
     }
+    //Construtor da classe AbrirArquivos
     public AbrirArquivos(boolean qualTipo){
-        this.qualTipo = qualTipo;
+        this.TipoLeitura = qualTipo;
     }
-    public BufferedReader abrirArquivoParaLeitura() throws IOException {
+    //Metódo que faz toda a abertura de arquivo para leitura.
+    public BufferedReader abrirArquivoParaLeitura()  {
+        //Bloco de código try que vai tentar abrir o arquivo
         try {
-            if(qualTipo == false){
+            //Verifica se o tipo é true para executar a linha que abre o arquivo
+            if(TipoLeitura == true){
                 return Files.newBufferedReader(arquivo);
             } 
+            System.out.print("Leitura Feita. ");
         } catch (IOException e) {
+            //Tratamento de erro caso a abertura dê errado
             System.err.println("Erro de leitura do arquivo");
-        }
-        if(qualTipo == false){
-            return Files.newBufferedReader(arquivo);
         }
         return null;
     }
-    public BufferedWriter abrirArquivosEscrever() throws IOException{
+    //Metódo que faz a abertura do arquivo para escrever.
+    public BufferedWriter abrirArquivosEscrever() {
         try {
-            if(qualTipo == true){
+            //Verifica se o atributo TipoLeitura é false pra fazer a abertura do arquivo para escrever.
+            if(TipoLeitura == false){
                 return new BufferedWriter(new FileWriter(arquivo.toFile(), true));
             }
         } catch (IOException e) {
+            //Tratamento de erro aqui
             System.err.print("Erro de leitura de arquivo");
         }
         return null;
