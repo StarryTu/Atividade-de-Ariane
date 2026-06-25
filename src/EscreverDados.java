@@ -5,16 +5,18 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 public class EscreverDados {  
     public static void main(String[] args) {
-        //Um buffered reader pra entrada de dados digitado pelo usuário
+        //Um buffered reader pra entrada de dados digitado pelo usuário.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("ArquivoPraTeste.txt"))){
-            System.out.print("Digite o que vai ter no arquivo: ");
-            String digitado = br.readLine();
-            bw.write(digitado);
-            System.out.print("Texto digitado no arquivo, pode conferir ele");
-        } catch(IOException e){
-            System.out.print("Erro na entrada de dados");
+        //Variável booleana pra ficar rodando em loop o bloco de código try-catch até sair certo.
+        boolean foiCerto = false;
+        AbrirArquivos ar = new AbrirArquivos(true);
+        //Um bloco de try que vai tentar fazer um buffered writer que vai escrever no arquivo
+        try(BufferedWriter bw = ar.abrirArquivosEscrever()){
+            System.out.print
+        }catch(IOException e){
+            
         }
+        
     }
     
 }
