@@ -13,7 +13,7 @@ public class EscreverDados {
         try(BufferedWriter bw = ar.abrirArquivosEscrever()){
             //Pedido ao usuário pra digitar o texto.
             System.out.print("Digite o que você quer no texto: ");
-            String digitado = br.readLine();
+            String digitado = br.readLine().strip();
             br = new BufferedReader(Files.newBufferedReader(ar.getArquivo()));
             String primeiraLinha = br.readLine();
             if(primeiraLinha != null && !primeiraLinha.strip().isEmpty()){

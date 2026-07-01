@@ -12,8 +12,7 @@ public class LerDados {
             }
             System.out.println("Quantidade de linhas: " + contador);
         }catch(IOException e){
-            System.out.print("Erro ao ler o arquivo");
+            System.err.print("Erro ao ler o arquivo");
         }
-    }
-    
+    }  
 }
